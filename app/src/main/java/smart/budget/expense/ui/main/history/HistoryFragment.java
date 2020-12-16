@@ -73,13 +73,13 @@ public class HistoryFragment extends BaseFragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<String> city = new ArrayList<String>();
     private ImageView download;
-    private String City = "";
+    private String City = "default";
     private Spinner citySpinner;
     private String listText = "";
     private static final int STORAGE_CODE = 1000;
 
     public static HistoryFragment newInstance() {
-
+System.out.println("new instance");
         return new HistoryFragment();
     }
 
@@ -87,6 +87,8 @@ public class HistoryFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("created");
+
         setHasOptionsMenu(true);
     }
 
@@ -97,8 +99,11 @@ public class HistoryFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_history, container, false);
     }
 
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
         updateCitySpinner();
 
         dividerTextView = view.findViewById(R.id.divider_textview);
@@ -236,9 +241,10 @@ public class HistoryFragment extends BaseFragment {
     }
 
     private void updateCitySpinner() {
+       // System.out.println("Item Selected");
+
         db.collection("data").document("city").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-
 
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -251,8 +257,18 @@ public class HistoryFragment extends BaseFragment {
                             @Override
                             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                                 City = city.get(i);
-                                 historyRecyclerViewAdapter = new WalletEntriesRecyclerViewAdapter(getActivity(), getUid(), City);
+                                System.out.println(city);
+
+                                 //Update Everything here
+                                // historyRecyclerViewAdapter = new WalletEntriesRecyclerViewAdapter(getActivity(), getUid(), City);
+                                //   historyRecyclerView.setAdapter(historyRecyclerViewAdapter);
+
+
+                                historyRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+                                historyRecyclerViewAdapter = new WalletEntriesRecyclerViewAdapter(getActivity(), getUid(), City);
                                 historyRecyclerView.setAdapter(historyRecyclerViewAdapter);
+
+
                                 //Todo Update the Adaptor by fetching the list again and again
                                 Toast.makeText(getActivity(), "City in spinner is: " + City, Toast.LENGTH_LONG).show();
                             }

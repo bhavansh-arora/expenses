@@ -294,52 +294,1145 @@
                             app:layout_constraintGuide_percent="0.6" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+<LinearLayout
+    android:id="@+id/week1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    >
 
-                    <RadioGroup
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="16dp">
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
-                        <RadioButton
-                            android:id="@+id/radio_installment_12"
+                        <CheckBox
+                            android:id="@+id/one"
+                            android:onClick="one"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12 Installment"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="10dp"
-                            android:paddingLeft="10dp"/>
 
-                        <RadioButton
-                            android:id="@+id/radio_installment_24"
+                            />
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="24 Installment"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="10dp"
-                            android:paddingLeft="10dp"/>
+                            android:text="Week 1 Day : "/>
+                     <TextView
+                         android:id="@+id/week_one"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="24/12/2020"/>
 
-                        <RadioButton
-                            android:id="@+id/radio_installment_36"
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="36 Installment"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="10dp"
-                            android:paddingLeft="10dp"/>
-
-                        <RadioButton
-                            android:id="@+id/radio_installment_48"
+                            android:id="@+id/two"
+                            android:onClick="two" />
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="48 Installment"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="10dp"
-                            android:paddingLeft="10dp"/>
+                            android:text="Week 2 Day : "/>
+                        <TextView
+                            android:id="@+id/week_two"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
 
-                    </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/three"
+                            android:onClick="three"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 3 Day : "/>
+                        <TextView
+                            android:id="@+id/week_three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/four"
+                            android:onClick="four"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 4 Day : "/>
+                        <TextView
+                            android:id="@+id/week_four"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/five"
+                            android:onClick="five"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 5 Day : "/>
+                        <TextView
+                            android:id="@+id/week_five"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/six"
+                            android:onClick="six"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 6 Day : "/>
+                        <TextView
+                            android:id="@+id/week_six"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/seven"
+                            android:onClick="seven"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 7 Day : "/>
+                        <TextView
+                            android:id="@+id/week_seven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/eight"
+                            android:onClick="eight"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 8 Day : "/>
+                        <TextView
+                            android:id="@+id/week_eight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/nine"
+                            android:onClick="nine"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 9 Day : "/>
+                        <TextView
+                            android:id="@+id/week_nine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ten"
+                            android:onClick="ten"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 10 Day : "/>
+                        <TextView
+                            android:id="@+id/week_ten"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/eleven"
+                            android:onClick="eleven"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 11 Day : "/>
+                        <TextView
+                            android:id="@+id/week_eleven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twelve"
+                            android:onClick="twelve"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 12 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twelve"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+</LinearLayout>
+                <LinearLayout
+                    android:id="@+id/week2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirteen"
+                            android:onClick="thirteen"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 13 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirteen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fourteen"
+                            android:onClick="fourteen"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 14 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fourteen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fifteen"
+                            android:onClick="fifteen"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 15 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fifteen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sixteen"
+                            android:onClick="sixteen"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 16 Day : "/>
+                        <TextView
+                            android:id="@+id/week_sixteen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/seventeen"
+                            android:onClick="seventeen"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 17 Day : "/>
+                        <TextView
+                            android:id="@+id/week_seventeen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/eighteen"
+                            android:onClick="eighteen"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 18 Day : "/>
+                        <TextView
+                            android:id="@+id/week_eighteen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/nineteen"
+                            android:onClick="nineteen"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 19 Day : "/>
+                        <TextView
+                            android:id="@+id/week_nineteen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twenty"
+                            android:onClick="twenty"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 20 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twenty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentyone"
+                            android:onClick="twentyone"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 21 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentyone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentytwo"
+                            android:onClick="twentytwo"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 22 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentytwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentythree"
+                            android:onClick="twentythree"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 23 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentythree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentyfour"
+                            android:onClick="twentyfour"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 24 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentyfour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/week3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentyfive"
+                            android:onClick="twentyfive"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 25 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentyfive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentysix"
+                            android:onClick="twentysix"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 26 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentysix"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentyseven"
+                            android:onClick="twentyseven"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 27 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentyseven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentyeight"
+                            android:onClick="twentyeight"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 28 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentyeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/twentynine"
+                            android:onClick="twentynine"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 29 Day : "/>
+                        <TextView
+                            android:id="@+id/week_twentynine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirty"
+                            android:onClick="thirty"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 30 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtyone"
+                            android:onClick="thirtyone"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 31 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtyone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtytwo"
+                            android:onClick="thirtytwo"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 32 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtytwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtythree"
+                            android:onClick="thirtythree"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 33 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtythree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtyfour"
+                            android:onClick="thirtyfour"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 34 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtyfour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtyfive"
+                            android:onClick="thirtyfive"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 35 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtyfive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtysix"
+                            android:onClick="thirtysix"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 36 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtysix"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/week4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtyseven"
+                            android:onClick="thirtyseven"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 37 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtyseven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtyeight"
+                            android:onClick="thirtyeight"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 38 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtyeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/thirtynine"
+                            android:onClick="thirtynine"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 39 Day : "/>
+                        <TextView
+                            android:id="@+id/week_thirtynine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/forty"
+                            android:onClick="forty"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 40 Day : "/>
+                        <TextView
+                            android:id="@+id/week_forty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortyone"
+                            android:onClick="fortyone"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 41 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fortyone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortytwo"
+                            android:onClick="fortytwo"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 42 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fortytwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortythree"
+                            android:onClick="fortythree"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 43 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fortythree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortyfour"
+                            android:onClick="fortyfour"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 44 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fotyfour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortyfive"
+                            android:onClick="fortyfive"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 45 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fortyfive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortysix"
+                            android:onClick="fortysix"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 46 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fortysix"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortyseven"
+                            android:onClick="fortyseven"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 47 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fortyseven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fortyeight"
+                            android:onClick="fortyeight"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 48 Day : "/>
+                        <TextView
+                            android:id="@+id/week_fortyeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/12/2020"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                </LinearLayout>
+
             </ScrollView>
 
             <Button

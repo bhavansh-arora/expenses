@@ -15,11 +15,13 @@ public class WalletEntry {
     public long timestamp;
     public long balanceDifference;
     public String city;
-    public WalletEntry() {
+    public int duration;
+    public int installment;
 
-    }
+public WalletEntry(){
 
-    public WalletEntry(String categoryID, String name, long timestamp, long balanceDifference, String mobile , String village , String description,String city ) {
+}
+    public WalletEntry(String categoryID, String name, long timestamp, long balanceDifference, String mobile , String village , String description,String city,int install_duration,int installments ) {
         this.categoryID = categoryID;
         this.name = name;
         this.mobile = mobile;
@@ -28,6 +30,9 @@ public class WalletEntry {
         this.timestamp = -timestamp;
         this.balanceDifference = balanceDifference;
         this.city = city;
+        this.duration = install_duration;
+        this.installment = installments;
     }
+
 
 }

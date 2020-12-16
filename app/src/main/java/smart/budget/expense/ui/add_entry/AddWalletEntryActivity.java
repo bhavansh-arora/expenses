@@ -1,5 +1,6 @@
 package smart.budget.expense.ui.add_entry;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
@@ -13,7 +14,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -43,9 +46,9 @@ import smart.budget.expense.util.CurrencyHelper;
 import smart.budget.expense.R;
 import smart.budget.expense.firebase.models.WalletEntry;
 
-public class AddWalletEntryActivity extends CircularRevealActivity implements AdapterView.OnItemSelectedListener{
+public class AddWalletEntryActivity extends CircularRevealActivity implements AdapterView.OnItemSelectedListener {
 
-    private Spinner selectCategorySpinner,selectCitySpinner;
+    private Spinner selectCategorySpinner, selectCitySpinner;
     private TextInputEditText selectNameEditText;
     private TextInputEditText selectMobileEditText;
     private Calendar chosenDate;
@@ -62,9 +65,11 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
     private TextInputLayout selectVillageInputLayout;
     private TextInputLayout selectDescriptionInputLayout;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private ArrayList<String> city=new ArrayList<String>();
+    private ArrayList<String> city = new ArrayList<String>();
     private String City;
-
+    private RadioGroup radioGroup;
+    private int install_duration;
+    private int installments = 0;
 
     public AddWalletEntryActivity() {
         super(R.layout.activity_add_wallet_entry, R.id.activity_contact_fab, R.id.root_layout, R.id.root_layout2);
@@ -76,6 +81,7 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Add wallet entry");
 
+        radioGroup = findViewById(R.id.radio_group);
         selectCategorySpinner = findViewById(R.id.select_category_spinner);
         selectNameEditText = findViewById(R.id.select_name_edittext);
         selectMobileEditText = findViewById(R.id.select_mobile_edittext);
@@ -92,9 +98,10 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
         selectMobileInputLayout = findViewById(R.id.select_mobile_inputlayout);
         selectVillageInputLayout = findViewById(R.id.select_village_inputlayout);
         selectDescriptionInputLayout = findViewById(R.id.select_description_inputlayout);
-        selectCitySpinner=(Spinner)findViewById(R.id.select_city_spinner);
+        selectCitySpinner = (Spinner) findViewById(R.id.select_city_spinner);
         updateCitySpinner();
         chosenDate = Calendar.getInstance();
+
 
         UserProfileViewModelFactory.getModel(getUid(), this).observe(this, new FirebaseObserver<FirebaseElement<User>>() {
             @Override
@@ -132,24 +139,49 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
 
 
         addEntryButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddWalletEntryActivity.this,"City : "+City,Toast.LENGTH_LONG).show();
-                try {
-                    addToWallet(((selectTypeSpinner.getSelectedItemPosition() * 2) - 1) *
-                                    CurrencyHelper.convertAmountStringToLong(selectAmountEditText.getText().toString()),
-                            chosenDate.getTime(),
-                            ((Category) selectCategorySpinner.getSelectedItem()).getCategoryID(),
-                            selectNameEditText.getText().toString(),
-                            selectMobileEditText.getText().toString(),
-                            selectVillageEditText.getText().toString(),
-                            selectDescriptionEditText.getText().toString()
-                    );
-                } catch (EmptyStringException e) {
-                    selectNameInputLayout.setError(e.getMessage());
-                    selectMobileInputLayout.setError(e.getMessage());
-                } catch (ZeroBalanceDifferenceException e) {
-                    selectAmountInputLayout.setError(e.getMessage());
+                if (radioGroup.getCheckedRadioButtonId() == -1) {
+                    // no radio buttons are checked
+                    Toast.makeText(AddWalletEntryActivity.this, "Kindly select the installment duration.", Toast.LENGTH_LONG).show();
+                } else {
+                    System.out.println(radioGroup.getCheckedRadioButtonId());
+
+                    if (radioGroup.getCheckedRadioButtonId() == 2131230978) {
+                        //button 3  2131230960
+                        install_duration = 12;
+
+                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230979) {
+                        //button 3  2131230960
+                        install_duration = 24;
+
+                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230980) {
+                        //button 3  2131230960
+                        install_duration = 36;
+
+
+                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230981) {
+                        //button 3  2131230960
+                        install_duration = 48;
+                    }
+                    Toast.makeText(AddWalletEntryActivity.this, "City : " + City, Toast.LENGTH_LONG).show();
+                    try {
+                        addToWallet(((selectTypeSpinner.getSelectedItemPosition() * 2) - 1) *
+                                        CurrencyHelper.convertAmountStringToLong(selectAmountEditText.getText().toString()),
+                                chosenDate.getTime(),
+                                ((Category) selectCategorySpinner.getSelectedItem()).getCategoryID(),
+                                selectNameEditText.getText().toString(),
+                                selectMobileEditText.getText().toString(),
+                                selectVillageEditText.getText().toString(),
+                                selectDescriptionEditText.getText().toString()
+                        );
+                    } catch (EmptyStringException e) {
+                        selectNameInputLayout.setError(e.getMessage());
+                        selectMobileInputLayout.setError(e.getMessage());
+                    } catch (ZeroBalanceDifferenceException e) {
+                        selectAmountInputLayout.setError(e.getMessage());
+                    }
                 }
             }
         });
@@ -194,7 +226,7 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
         chooseTimeTextView.setText(dataFormatter2.format(chosenDate.getTime()));
     }
 
-    public void addToWallet(long balanceDifference, Date entryDate, String entryCategory, String entryName , String mobile , String village , String description) throws ZeroBalanceDifferenceException, EmptyStringException {
+    public void addToWallet(long balanceDifference, Date entryDate, String entryCategory, String entryName, String mobile, String village, String description) throws ZeroBalanceDifferenceException, EmptyStringException {
         if (balanceDifference == 0) {
             throw new ZeroBalanceDifferenceException("Balance difference should not be 0");
         }
@@ -204,7 +236,7 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
         }
 
         FirebaseDatabase.getInstance().getReference().child("wallet-entries").child(getUid())
-                .child("default").push().setValue(new WalletEntry(entryCategory, entryName, entryDate.getTime(), balanceDifference, mobile , village , description,City));
+                .child("default").push().setValue(new WalletEntry(entryCategory, entryName, entryDate.getTime(), balanceDifference, mobile, village, description, City, install_duration, installments));
         user.wallet.sum += balanceDifference;
         UserProfileViewModelFactory.saveModel(getUid(), user);
         finishWithAnimation();
@@ -248,11 +280,12 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            City=city.get(i);
+        City = city.get(i);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-        Toast.makeText(AddWalletEntryActivity.this,"Please select city",Toast.LENGTH_SHORT).show();
+        Toast.makeText(AddWalletEntryActivity.this, "Please select city", Toast.LENGTH_SHORT).show();
     }
+
 }
