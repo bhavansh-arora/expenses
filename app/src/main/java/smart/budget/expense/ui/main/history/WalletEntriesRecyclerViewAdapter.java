@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 
 import androidx.constraintlayout.solver.widgets.Rectangle;
@@ -53,20 +54,21 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
     private final FragmentActivity fragmentActivity;
     private ListDataSet<WalletEntry> walletEntries;
     private ListDataSet<WalletEntry> walletstoreEntries;
-    ArrayList<String> citynames;
     ViewGroup store;
     WalletEntryHolder holder_store;
     int position_store;
 
-    private String city;
+    private String cityi;
     private User user;
-    private boolean firstUserSync = false;
+    private boolean firstUserSync = false,sync=false;
 
     String listText="";
 
 
-    public WalletEntriesRecyclerViewAdapter(FragmentActivity fragmentActivity, String uid, String city) {
+    public WalletEntriesRecyclerViewAdapter(FragmentActivity fragmentActivity, String uid) {
+
         System.out.println("chnanged");
+
         firstUserSync=false;
         if(walletstoreEntries!=null){
             walletstoreEntries.clear();
@@ -79,12 +81,13 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
 
         }
         this.fragmentActivity = fragmentActivity;
+
         this.uid = uid;
-        this.city = city;
 
         UserProfileViewModelFactory.getModel(uid, fragmentActivity).observe(fragmentActivity, new FirebaseObserver<FirebaseElement<User>>() {
             @Override
             public void onChanged(FirebaseElement<User> element) {
+                System.out.println("changed");
                 if (!element.hasNoError()) return;
                 WalletEntriesRecyclerViewAdapter.this.user = element.getElement();
                 if (!firstUserSync) {
@@ -137,10 +140,11 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
                     + "\n\n";
 
         }
+
     }
 
 
-    private void checkCity() {
+   /* private void checkCity() {
         if (!city.equals("default")) {
             int i = 0;
             for (WalletEntry w : walletEntries.getList()) {
@@ -154,7 +158,7 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
                 i++;
             }
         }
-    }
+    }*/
 
     @Override
     public WalletEntryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -165,8 +169,10 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
         return new WalletEntryHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(WalletEntryHolder holder, int position) {
+
         position_store=position;
         holder_store = holder;
         System.out.println("onBindViewHolder");
@@ -212,8 +218,12 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
 
     @Override
     public int getItemCount() {
-System.out.println("get count");
-        WalletEntriesHistoryViewModelFactory.getModel(uid, fragmentActivity).getStartDate();
+
+        SharedPreferences sharedpreferences = fragmentActivity.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        cityi = sharedpreferences.getString("city","Everywhere");
+//System.out.println("get count");
+//System.out.println(cityi);
+       // WalletEntriesHistoryViewModelFactory.getModel(uid, fragmentActivity).getStartDate();
         walletstoreEntries = walletEntries;
 
 
@@ -226,7 +236,9 @@ System.out.println("get count");
         // System.out.println(walletEntries);
        // System.out.println(walletstoreEntries);
    // System.out.println("counts");
-        if (!city.equals("default")) {
+        if(cityi==null)
+            return 0;
+       else if (!cityi.equals("default")) {
           //  System.out.println(walletEntries.getList().size());
 
             for (int j=0;j<walletstoreEntries.getList().size();j++) {
@@ -239,7 +251,7 @@ System.out.println("get count");
                 //  System.out.println("database "+walletEntry.city);
                 // TODO Extract the Complete list and compare to the walletEntries.village field and use the updated list in recycler view
                 //System.out.println("city................." + city + "..............village is........" + w.village);
-                if (!city.equals(walletEntry.city)) {
+                if (!cityi.equals(walletEntry.city)) {
                     walletstoreEntries.getList().remove(j);
                 //    notifyDataSetChanged();
                     //System.out.println(walletEntry.c);

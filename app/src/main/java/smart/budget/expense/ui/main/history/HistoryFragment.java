@@ -60,6 +60,7 @@ import smart.budget.expense.firebase.models.WalletEntry;
 import smart.budget.expense.firebase.viewmodel_factories.WalletEntriesHistoryViewModelFactory;
 import smart.budget.expense.base.BaseFragment;
 import smart.budget.expense.ui.add_entry.AddWalletEntryActivity;
+import smart.budget.expense.ui.options.CitiesActivity;
 import smart.budget.expense.ui.options.OptionsActivity;
 
 public class HistoryFragment extends BaseFragment {
@@ -74,9 +75,9 @@ public class HistoryFragment extends BaseFragment {
     private ArrayList<String> city = new ArrayList<String>();
     private ImageView download;
     private String City = "default";
-    private Spinner citySpinner;
     private String listText = "";
     private static final int STORAGE_CODE = 1000;
+    private TextView text;
 
     public static HistoryFragment newInstance() {
 System.out.println("new instance");
@@ -104,16 +105,16 @@ System.out.println("new instance");
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        updateCitySpinner();
+      //  updateCitySpinner();
 
         dividerTextView = view.findViewById(R.id.divider_textview);
         dividerTextView.setText("Last 100 entries:");
         historyRecyclerView = view.findViewById(R.id.history_recycler_view);
         historyRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        historyRecyclerViewAdapter = new WalletEntriesRecyclerViewAdapter(getActivity(), getUid(), City);
+        historyRecyclerViewAdapter = new WalletEntriesRecyclerViewAdapter(getActivity(), getUid());
         historyRecyclerView.setAdapter(historyRecyclerViewAdapter);
-        citySpinner = (Spinner) view.findViewById(R.id.city_spinner);
         download = view.findViewById(R.id.download_button);
+        text = view.findViewById(R.id.text);
 
         historyRecyclerViewAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
@@ -125,7 +126,11 @@ System.out.println("new instance");
         download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               listText=historyRecyclerViewAdapter.sendListText();
+                listText = new String();
+               // System.out.println(listText);
+                     listText=historyRecyclerViewAdapter.sendListText();
+               System.out.println(historyRecyclerViewAdapter.sendListText());
+                     System.out.println(historyRecyclerViewAdapter.getItemCount());
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
                     //system OS >= Marshmallow(6.0), check if permission is enabled or not
                     if (getActivity().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
@@ -136,6 +141,7 @@ System.out.println("new instance");
                     }
                     else {
                         //permission already granted, call save pdf method
+
                         savePdf();
                     }
                 }
@@ -179,6 +185,12 @@ System.out.println("new instance");
                 showSelectDateRangeDialog();
                 return true;
             case R.id.action_options:
+                startActivity(new Intent(getActivity(), OptionsActivity.class));
+                return true;
+            case R.id.action_city:
+                startActivity(new Intent(getActivity(), CitiesActivity.class));
+                return true;
+            case R.id.action_search:
                 startActivity(new Intent(getActivity(), OptionsActivity.class));
                 return true;
             default:
@@ -240,7 +252,7 @@ System.out.println("new instance");
         historyRecyclerViewAdapter.setDateRange(calendarStart, calendarEnd);
     }
 
-    private void updateCitySpinner() {
+   /* private void updateCitySpinner() {
        // System.out.println("Item Selected");
 
         db.collection("data").document("city").get()
@@ -265,7 +277,7 @@ System.out.println("new instance");
 
 
                                 historyRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-                                historyRecyclerViewAdapter = new WalletEntriesRecyclerViewAdapter(getActivity(), getUid(), City);
+                                historyRecyclerViewAdapter = new WalletEntriesRecyclerViewAdapter(getActivity(), getUid());
                                 historyRecyclerView.setAdapter(historyRecyclerViewAdapter);
 
 
@@ -280,7 +292,7 @@ System.out.println("new instance");
                         });
                     }
                 });
-    }
+    }*/
 
    /* private void getData() {
         ref = FirebaseDatabase.getInstance().getReference("wallet-entries").child(getUid()).child("default");
@@ -331,15 +343,19 @@ System.out.println("new instance");
 
             //add paragraph to the document
             mDoc.add(new Paragraph(listText));
-
+           // System.out.println(listText);
             //close the document
             mDoc.close();
             //show message that file is saved, it will show file name and file path too
             Toast.makeText(getActivity(), mFileName +".pdf\nis saved to\n"+ mFilePath, Toast.LENGTH_SHORT).show();
+            listText = "";
+            listText = new String();
         }
         catch (Exception e){
             //if any thing goes wrong causing exception, get and show exception message
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            listText = "";
+            listText = new String();
         }
     }
 

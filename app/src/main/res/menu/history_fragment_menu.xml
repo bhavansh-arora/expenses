@@ -9,4 +9,12 @@
         android:title="Options"
         android:icon="@drawable/icon_options"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_city"
+        android:title="Cities"
+        android:icon="@drawable/city"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_search"
+        android:title="Search"
+        android:icon="@drawable/search"
+        app:showAsAction="ifRoom"/>
 </menu>

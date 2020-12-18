@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -21,6 +22,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -148,24 +151,24 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
                 } else {
                     System.out.println(radioGroup.getCheckedRadioButtonId());
 
-                    if (radioGroup.getCheckedRadioButtonId() == 2131230978) {
+                    if (radioGroup.getCheckedRadioButtonId() == 2131230981) {
                         //button 3  2131230960
                         install_duration = 12;
 
-                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230979) {
+                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230982) {
                         //button 3  2131230960
                         install_duration = 24;
 
-                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230980) {
+                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230983) {
                         //button 3  2131230960
                         install_duration = 36;
 
 
-                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230981) {
+                    } else if (radioGroup.getCheckedRadioButtonId() == 2131230984) {
                         //button 3  2131230960
                         install_duration = 48;
                     }
-                    Toast.makeText(AddWalletEntryActivity.this, "City : " + City, Toast.LENGTH_LONG).show();
+                   // Toast.makeText(AddWalletEntryActivity.this, "City : " + City, Toast.LENGTH_LONG).show();
                     try {
                         addToWallet(((selectTypeSpinner.getSelectedItemPosition() * 2) - 1) *
                                         CurrencyHelper.convertAmountStringToLong(selectAmountEditText.getText().toString()),
@@ -179,8 +182,11 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
                     } catch (EmptyStringException e) {
                         selectNameInputLayout.setError(e.getMessage());
                         selectMobileInputLayout.setError(e.getMessage());
+                        Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+
                     } catch (ZeroBalanceDifferenceException e) {
                         selectAmountInputLayout.setError(e.getMessage());
+                        Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -236,7 +242,13 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements Ad
         }
 
         FirebaseDatabase.getInstance().getReference().child("wallet-entries").child(getUid())
-                .child("default").push().setValue(new WalletEntry(entryCategory, entryName, entryDate.getTime(), balanceDifference, mobile, village, description, City, install_duration, installments));
+                .child("default").push().setValue(new WalletEntry(entryCategory, entryName, entryDate.getTime(), balanceDifference, mobile, village, description, City, install_duration, installments))
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
         user.wallet.sum += balanceDifference;
         UserProfileViewModelFactory.saveModel(getUid(), user);
         finishWithAnimation();
