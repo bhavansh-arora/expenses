@@ -99,7 +99,7 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
                                 System.out.println("putting wallet entries");
                                 System.out.println(element.getElement().getList());
                                 walletEntries = element.getElement();
-                                //walletstoreEntries = element.getElement();
+                                walletstoreEntries = element.getElement();
                               //  System.out.println("changed");
                                // checkCity();
                                 generateText(walletEntries.getList());
@@ -227,7 +227,7 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
         walletstoreEntries = walletEntries;
 
 
-        if (walletEntries == null) return 0;
+        if (walletstoreEntries == null) return 0;
        // System.out.println("stored");
 
       //  System.out.println(walletstoreEntries.getList().size());
@@ -241,8 +241,8 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
        else if (!cityi.equals("default")) {
           //  System.out.println(walletEntries.getList().size());
 
-            for (int j=0;j<walletstoreEntries.getList().size();j++) {
-               WalletEntry walletEntry = walletstoreEntries.getList().get(j);
+         /* for (int j=0;j<walletstoreEntries.getList().size();j++) {
+            //   WalletEntry walletEntry = walletstoreEntries.getList().get(j);
               // System.out.println(walletEntry.city);
 
 
@@ -251,14 +251,28 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
                 //  System.out.println("database "+walletEntry.city);
                 // TODO Extract the Complete list and compare to the walletEntries.village field and use the updated list in recycler view
                 //System.out.println("city................." + city + "..............village is........" + w.village);
-                if (!cityi.equals(walletEntry.city)) {
+              if (!cityi.equals(walletstoreEntries.getList().get(j).city)) {
                     walletstoreEntries.getList().remove(j);
+                    j--;
                 //    notifyDataSetChanged();
                     //System.out.println(walletEntry.c);
                 }
 
-            }
+            } */
+            int i = 0;
 
+            for (int j=0;j<walletstoreEntries.getList().size();j++) {
+                System.out.println(walletstoreEntries.getList().size());
+                System.out.println("i value"+i);
+                System.out.println(walletstoreEntries.getList().get(j).city);
+                System.out.println(walletstoreEntries.getList());
+                //TODO Extract the Complete list and compare to the walletEntries.village field and use the updated list in recycler view
+                //System.out.println("city................." + city + "..............village is........" + w.village);
+                if (!cityi.equals(walletstoreEntries.getList().get(i).city)) {
+                    walletstoreEntries.getList().remove(i);
+                }
+                i++;
+            }
           return walletstoreEntries.getList().size();
 
 

@@ -191,7 +191,8 @@ System.out.println("new instance");
                 startActivity(new Intent(getActivity(), CitiesActivity.class));
                 return true;
             case R.id.action_search:
-                startActivity(new Intent(getActivity(), OptionsActivity.class));
+                Dialog dialog =new Dialog();
+                dialog.show(getActivity().getSupportFragmentManager(),"Dialog box");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
